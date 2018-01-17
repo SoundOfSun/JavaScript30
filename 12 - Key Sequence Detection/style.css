@@ -1,0 +1,28 @@
+body {
+  background-color: #BADA55;
+  font-size: 36px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+}
+
+.konami {
+  margin: 0 auto;
+  padding: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.code {
+  padding: 10px;
+  border: 2px solid black;
+}
+
+#win {
+  font-size: 24px;
+  text-align: center;
+}

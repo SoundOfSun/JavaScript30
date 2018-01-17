@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>JS + CSS Clock</title>
-</head>
-<body>
-
-
+  <head>
+    <meta charset="UTF-8">
+    <title>JS + CSS Clock</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
     <div class="clock">
       <div class="clock-face">
         <div class="hand hour-hand"></div>
@@ -15,97 +14,6 @@
       </div>
     </div>
 
-
-  <style>
-    html {
-      background:#018DED url(https://static.pexels.com/photos/213622/pexels-photo-213622.jpeg);
-      background-size:cover;
-      font-family:'helvetica neue';
-      text-align: center;
-      font-size: 10px;
-    }
-
-    body {
-      margin: 0;
-      font-size: 2rem;
-      display:flex;
-      flex:1;
-      min-height: 100vh;
-      align-items: center;
-    }
-
-    .clock {
-      width: 30rem;
-      height: 30rem;
-      border:20px solid white;
-      border-radius:50%;
-      margin:50px auto;
-      position: relative;
-      padding:2rem;
-      box-shadow:
-        0 0 0 4px rgba(0,0,0,0.1),
-        inset 0 0 0 3px #EFEFEF,
-        inset 0 0 10px black,
-        0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .clock-face {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform: translateY(-3px); /* account for the height of the clock hands */
-    }
-
-    .hand {
-      width:50%;
-      height:6px;
-      background:black;
-      position: absolute;
-      top:50%;
-      /* Make the rotation start on x axis (far right) */
-      transform-origin: 100%;
-      /* Initial position vertical */
-      transform: rotate(90deg);
-      /* Transition for each second */
-      transition: all 0.05s;
-      /* Tick pulse of the hand */
-      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
-    }
-
-  </style>
-
-  <script>
-    // Grab each hand of the clock (sec, min, hour)
-    const secondHand = document.querySelector('.second-hand');
-    const minHand = document.querySelector('.min-hand');
-    const hourHand = document.querySelector('.hour-hand');
-
-    // 1. Set the date
-    function setDate() {
-      // 2. Grab the date
-      const now = new Date();
-      // 3. Get the seconds, mins, hours
-      const seconds = now.getSeconds();
-      const minutes = now.getMinutes();
-      const hours = now.getHours();
-      // 4. Translate each sec, min, hour into a degree
-      const secondsDegrees = ((seconds / 60) * 360) + 90;
-      const minsDegrees = ((minutes / 60) * 360) + 90;
-      const hoursDegrees = ((hours / 12) * 360) + 90;
-      // divided by 60 or 12 gives percentage
-      // times 360 is the full, 100%
-      // +90 do match the initial offset 90 degrees
-      // 5. Apply style on each hand
-      secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-      minHand.style.transform = `rotate(${minsDegrees}deg)`;
-      hourHand.style.transform = `rotate(${hoursDegrees}deg)`;
-      // Test to check seconds match rotation
-      console.log(seconds);
-    }
-
-    // 6. Run the function every second
-    setInterval(setDate, 1000);
-
-  </script>
-</body>
+    <script src="clock.js"></script>
+  </body>
 </html>
